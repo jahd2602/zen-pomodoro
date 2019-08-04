@@ -1,0 +1,88 @@
+/**
+ * Copyright © 2017 Jairo Honorio. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+@import '../variables.scss';
+
+.root {
+}
+
+.container {
+}
+
+// ---------------------------------
+// -----  from Pomodoro Timer  -----
+// ---------------------------------
+
+$color1: #45ff45;
+$color2: #21e521;
+$color3: #ff4444;
+$color4: #e52121;
+$color5: #FFFFFF;
+
+.main {
+  padding-top: 70px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.tomato {
+  width: 250px;
+  min-width: 250px;
+  height: 250px;
+  background: $color3;
+  border: 15px solid $color5;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: ew-resize;
+  position: relative;
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+  &::before {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 20px 10px;
+    border-color: transparent transparent $color5 transparent;
+    left: 115px;
+    top: 160px;
+  }
+}
+
+.stem {
+  z-index: 2;
+  width: 280px;
+  top: -65px;
+  height: auto;
+  position: absolute;
+  pointer-events: none;
+  use {
+    fill: $color2;
+  }
+}
+
+.timeline {
+  width: 676px;
+  height: 50px;
+  position: absolute;
+  top: 90px;
+  left: 125px;
+  background: url('./pomodoro-timeline.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.controls {
+  margin-top: -45px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}

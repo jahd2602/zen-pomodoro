@@ -167,7 +167,7 @@ class App extends Component {
 
                         <Navigation>
                             <a
-                                href="https://github.com/jahd2602/material-pomodoro-react"
+                                href="https://github.com/jahd2602/zen-pomodoro"
                                 target="blank"
                             >
                                 <Icon name="code"/> Code on Github

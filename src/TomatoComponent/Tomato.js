@@ -116,16 +116,16 @@ class TomatoComponent extends Component {
 
   loadSounds() {
     this.tickSound = new Howl({
-      urls: ['sounds/pomodoro_tick.ogg', 'sounds/pomodoro_tick.mp3'],
+      src: ['sounds/pomodoro_tick.ogg', 'sounds/pomodoro_tick.mp3'],
       loop: true,
       volume: 0.5,
     });
 
     this.turnSound = new Howl({
-      urls: ['sounds/pomodoro_turn.ogg', 'sounds/pomodoro_turn.mp3'],
+      src: ['sounds/pomodoro_turn.ogg', 'sounds/pomodoro_turn.mp3'],
     });
     this.ringSound = new Howl({
-      urls: ['sounds/pomodoro_ring.ogg', 'sounds/pomodoro_ring.mp3'],
+      src: ['sounds/pomodoro_ring.ogg', 'sounds/pomodoro_ring.mp3'],
       volume: 1.0,
     });
   }

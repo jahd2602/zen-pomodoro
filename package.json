@@ -1,7 +1,7 @@
 {
   "name": "zen-pomodoro",
   "version": "2019.8.0",
-  "private": true,
+  "homepage": "./",
   "dependencies": {
     "fbjs": "^1.0.0",
     "howler": "^2.1.2",

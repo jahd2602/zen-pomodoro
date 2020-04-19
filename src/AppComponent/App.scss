@@ -14,11 +14,13 @@
  * ========================================================================== */
 
 html {
-  color: #222;
+  color      : #222;
   font-weight: 100;
-  font-size: 1em; /* ~16px; */
+  font-size  : 1em;
+  /* ~16px; */
   font-family: $font-family-base;
-  line-height: 1.375; /* ~22px */
+  line-height: 1.375;
+  /* ~22px */
   background-color: brown;
 }
 
@@ -31,12 +33,12 @@ html {
  */
 
 ::-moz-selection {
-  background: #b3d4fc;
+  background : #b3d4fc;
   text-shadow: none;
 }
 
 ::selection {
-  background: #b3d4fc;
+  background : #b3d4fc;
   text-shadow: none;
 }
 
@@ -45,12 +47,12 @@ html {
  */
 
 hr {
-  display: block;
-  height: 1px;
-  border: 0;
+  display   : block;
+  height    : 1px;
+  border    : 0;
   border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+  margin    : 1em 0;
+  padding   : 0;
 }
 
 /*
@@ -73,8 +75,8 @@ video {
  */
 
 fieldset {
-  border: 0;
-  margin: 0;
+  border : 0;
+  margin : 0;
   padding: 0;
 }
 
@@ -91,10 +93,10 @@ textarea {
  * ========================================================================== */
 
 :global(.browserupgrade) {
-  margin: 0.2em 0;
+  margin    : 0.2em 0;
   background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+  color     : #000;
+  padding   : 0.2em 0;
 }
 
 /*
@@ -104,13 +106,15 @@ textarea {
  * ========================================================================== */
 
 @media print {
+
   *,
   *:before,
   *:after {
-    background: transparent !important;
-    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
-    box-shadow: none !important;
-    text-shadow: none !important;
+    background            : transparent !important;
+    color                 : #000 !important;
+    /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+    box-shadow            : none !important;
+    text-shadow           : none !important;
   }
 
   a,
@@ -119,11 +123,11 @@ textarea {
   }
 
   a[href]:after {
-    content: " (" attr(href) ")";
+    content: " ("attr(href) ")";
   }
 
   abbr[title]:after {
-    content: " (" attr(title) ")";
+    content: " ("attr(title) ")";
   }
 
   /*
@@ -138,7 +142,7 @@ textarea {
 
   pre,
   blockquote {
-    border: 1px solid #999;
+    border           : 1px solid #999;
     page-break-inside: avoid;
   }
 
@@ -164,7 +168,7 @@ textarea {
   h2,
   h3 {
     orphans: 3;
-    widows: 3;
+    widows : 3;
   }
 
   h2,
@@ -175,27 +179,28 @@ textarea {
 
 @font-face {
   font-family: 'Material Icons';
-  font-style: normal;
+  font-style : normal;
   font-weight: 400;
-  src: local('Material Icons'),
-  local('MaterialIcons-Regular'),
-  url(./MaterialIcons-Regular.woff2) format('woff2'),
-  url(./MaterialIcons-Regular.woff) format('woff'),
-  url(./MaterialIcons-Regular.ttf) format('truetype');
+  src        : local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(./MaterialIcons-Regular.woff2) format('woff2'),
+    url(./MaterialIcons-Regular.woff) format('woff'),
+    url(./MaterialIcons-Regular.ttf) format('truetype');
 }
 
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
-  font-style: normal;
-  font-size: 24px; /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
+  font-style : normal;
+  font-size  : 24px;
+  /* Preferred icon size */
+  display       : inline-block;
+  line-height   : 1;
   text-transform: none;
   letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
+  word-wrap     : normal;
+  white-space   : nowrap;
+  direction     : ltr;
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
@@ -207,25 +212,4 @@ textarea {
 
   /* Support for IE. */
   font-feature-settings: 'liga';
-}
-
-.drawer {
-  h1 {
-    margin-top: 7px;
-    font-size: 34px;
-  }
-
-  h2 {
-    font-size: 28px;
-    margin: 0 auto;
-  }
-}
-
-.socialContainer {
-  margin-top: 18px;
-
-  div > div > div {
-    margin: 0 auto;
-    cursor: pointer;
-  }
 }

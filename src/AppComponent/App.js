@@ -5,7 +5,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import s from './App.scss';
@@ -23,7 +23,7 @@ import {
     RadioGroup,
     Radio,
 } from 'react-mdl';
-import {version} from './../../package.json';
+import { version } from './../../package.json';
 import {
     FacebookShareButton,
     LinkedinShareButton,
@@ -78,7 +78,7 @@ class App extends Component {
     }
 
     onTickSoundConfigChange = (e) => {
-        this.setState({tickSoundConfig: e.target.value});
+        this.setState({ tickSoundConfig: e.target.value });
     };
 
     onGetConfig = () => ({
@@ -86,11 +86,11 @@ class App extends Component {
     });
 
     handleToggleDialog = () => {
-        this.setState({openDialog: !this.state.openDialog});
+        this.setState({ openDialog: !this.state.openDialog });
     };
 
     handleCloseDialog = () => {
-        this.setState({openDialog: false});
+        this.setState({ openDialog: false });
     };
 
     render() {
@@ -99,11 +99,11 @@ class App extends Component {
         return !this.props.error ? (
             <div>
                 <Layout fixedDrawer>
-                    <Header transparent/>
+                    <Header transparent />
                     <Drawer className="drawer">
                         <Grid
                             shadow={1}
-                            style={{margin: '0'}}
+                            style={{ margin: '0' }}
                         >
                             <Cell col={12}>
                                 <h1>Zen Pomodoro</h1>
@@ -121,14 +121,14 @@ class App extends Component {
                                     ripple
                                     onClick={this.handleToggleDialog}
                                 >
-                                    <Icon name="settings"/>
+                                    <Icon name="settings" />
                                 </Button>
                             </Cell>
                             {this.state.openDialog ?
                                 <Cell col={12}>
                                     <Grid
                                         shadow={1}
-                                        style={{margin: '0'}}
+                                        style={{ margin: '20px 0' }}
                                     >
                                         <Cell col={6}>
                                             Tick sound
@@ -170,19 +170,19 @@ class App extends Component {
                                 href="https://github.com/jahd2602/zen-pomodoro"
                                 target="blank"
                             >
-                                <Icon name="code"/> Code on Github
+                                <Icon name="code" /> Code on Github
                             </a>
                             <a
                                 href="https://pe.linkedin.com/in/jairohonorio"
                                 target="blank"
                             >
-                                <Icon name="portrait"/> My LinkedIn
+                                <Icon name="portrait" /> My LinkedIn
                             </a>
                             <a
                                 href="mailto:jairo@jahdsoft.com"
                                 target="blank"
                             >
-                                <Icon name="email"/> Email me
+                                <Icon name="email" /> Email me
                             </a>
                         </Navigation>
 
@@ -193,37 +193,37 @@ class App extends Component {
                             <h2>Social Share</h2>
                             <Cell col={6}>
                                 <FacebookShareButton url={shareUrl}>
-                                    <FacebookIcon round/>
+                                    <FacebookIcon round />
                                 </FacebookShareButton>
                             </Cell>
 
                             <Cell col={6}>
                                 <TwitterShareButton url={shareUrl}>
-                                    <TwitterIcon round/>
+                                    <TwitterIcon round />
                                 </TwitterShareButton>
                             </Cell>
 
                             <Cell col={6}>
                                 <LinkedinShareButton url={shareUrl}>
-                                    <LinkedinIcon round/>
+                                    <LinkedinIcon round />
                                 </LinkedinShareButton>
                             </Cell>
 
                             <Cell col={6}>
                                 <WhatsappShareButton url={shareUrl}>
-                                    <WhatsappIcon round/>
+                                    <WhatsappIcon round />
                                 </WhatsappShareButton>
                             </Cell>
 
                             <Cell col={6}>
                                 <TelegramShareButton url={shareUrl}>
-                                    <TelegramIcon round/>
+                                    <TelegramIcon round />
                                 </TelegramShareButton>
                             </Cell>
 
                             <Cell col={6}>
                                 <RedditShareButton url={shareUrl}>
-                                    <RedditIcon round/>
+                                    <RedditIcon round />
                                 </RedditShareButton>
                             </Cell>
 
@@ -232,19 +232,19 @@ class App extends Component {
                                     url={shareUrl}
                                     media="http://zen.jahdsoft.com/images/screenshot.png"
                                 >
-                                    <PinterestIcon round/>
+                                    <PinterestIcon round />
                                 </PinterestShareButton>
                             </Cell>
 
                             <Cell col={6}>
                                 <EmailShareButton url={shareUrl}>
-                                    <EmailIcon round/>
+                                    <EmailIcon round />
                                 </EmailShareButton>
                             </Cell>
                         </Grid>
                     </Drawer>
                     <Content>
-                        <TomatoComponent getConfig={this.onGetConfig}/>
+                        <TomatoComponent getConfig={this.onGetConfig} />
                     </Content>
                 </Layout>
             </div>

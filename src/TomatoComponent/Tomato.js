@@ -74,7 +74,7 @@ class TomatoComponent extends Component {
       this.pixelPos -= moveX;
       this.pixelPos = Math.max(0, Math.min(this.pixelPos, this.pixelWidth));
       this.timePos = Math.ceil(this.pixelPos * this.minutesWidth / this.pixelWidth *
-          this.timeMultiplier);
+        this.timeMultiplier);
       this.forceUpdate();
 
       // Plays de turn sound when appropiate
@@ -107,8 +107,8 @@ class TomatoComponent extends Component {
   paused = true;
   mode = TomatoComponent.MODE_POMODORO;
   showWhatIsPomodoroChip = true;
-  showWDontLockDeviceChip = true;
-  showWDontLockDeviceCard = false;
+  showDontLockDeviceChip = true;
+  showDontLockDeviceCard = false;
 
   tickSound;
   turnSound;
@@ -155,7 +155,7 @@ class TomatoComponent extends Component {
       this.isTickPlaying = true;
     } else if (this.tickSound.volume() > 0 && this.props.getConfig().tickSoundConfig === '2') {
       this.tickSound.volume(this.tickSound.volume() - 0.002); // Decreases tick volume over a few
-                                                              // seconds
+      // seconds
     }
 
     // Reduce the remaining time in the clock down to 0
@@ -202,18 +202,18 @@ class TomatoComponent extends Component {
   };
 
   hideDontLockDeviceChip = () => {
-    this.showWDontLockDeviceChip = false;
+    this.showDontLockDeviceChip = false;
     this.forceUpdate();
   };
 
-  showDontLockDeviceCard = () => {
-    this.showWDontLockDeviceChip = false;
-    this.showWDontLockDeviceCard = true;
+  doShowDontLockDeviceCard = () => {
+    this.showDontLockDeviceChip = false;
+    this.showDontLockDeviceCard = true;
     this.forceUpdate();
   };
 
   hideDontLockDeviceCard = () => {
-    this.showWDontLockDeviceCard = false;
+    this.showDontLockDeviceCard = false;
     this.forceUpdate();
   };
 
@@ -223,152 +223,152 @@ class TomatoComponent extends Component {
 
   render() {
     return (
-        <Grid className="root">
-          { this.showWhatIsPomodoroChip ?
-              <Cell col={12} className="mdl-typography--text-center">
-                <Chip className="mdl-color--white" onClose={this.hideHelpChip}>
-                  <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank"
-                     className="mdl-color-text--black"
-                  >
-                    What is the Pomodoro Technique?
-                  </a>
-                </Chip>
-              </Cell> : null }
-
-          { this.showWDontLockDeviceChip ?
-              <Cell col={12} className="mdl-typography--text-center">
-                <Chip className="mdl-color--white" onClose={this.hideDontLockDeviceChip}>
-                  <a href="#"
-                     onClick={this.showDontLockDeviceCard}
-                     className="mdl-color-text--black"
-                  >
-                    Don't lock your device. Why?
-                  </a>
-                </Chip>
-              </Cell> : null }
-
-          { this.showWDontLockDeviceCard ?
-              <Cell
-                  col={12}
+      <Grid className="root">
+        {this.showWhatIsPomodoroChip ?
+          <Cell col={12} className="mdl-typography--text-center">
+            <Chip className="mdl-color--white" onClose={this.hideHelpChip}>
+              <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank"
+                className="mdl-color-text--black"
               >
-                <Card
-                    shadow={1}
-                    style={{ margin: 'auto' }}
-                >
-                  <CardTitle expand>
-                    <h4 style={{ marginTop: '0' }}>
-                      Modern mobile operating systems will stop background JavaScript code while locked.
-                      Thus, if locked, the timer will stop running. Please don't lock your device. This
-                      issue does not occur in native builds. A native build for Android and, maybe, iOS,
-                      may be released soon, if users, like you, are interested.
-                    </h4>
-                  </CardTitle>
-                  <CardActions border>
-                    <Button
-                        colored
-                        onClick={this.hideDontLockDeviceCard}
-                    >
-                      OK
-                    </Button>
-                    <Button
-                        colored
-                        onClick={this.sendMail}
-                    >Email me</Button>
-                  </CardActions>
-                </Card>
-              </Cell>
-              : null }
+                What is the Pomodoro Technique?
+                  </a>
+            </Chip>
+          </Cell> : null}
 
+        {this.showDontLockDeviceChip ?
+          <Cell col={12} className="mdl-typography--text-center">
+            <Chip className="mdl-color--white" onClose={this.hideDontLockDeviceChip}>
+              <a href="#"
+                onClick={this.doShowDontLockDeviceCard}
+                className="mdl-color-text--black"
+              >
+                Don't lock your device. Why?
+                  </a>
+            </Chip>
+          </Cell> : null}
+
+        {this.showDontLockDeviceCard ?
           <Cell
-              col={12}
-              className="main"
-              onMouseMove={this.onMouseMove}
-              onMouseUp={this.onMouseUp}
-              onTouchMove={this.onMouseMove}
-              onTouchEnd={this.onMouseUp}
-              ref="main"
+            col={12}
           >
-            <svg style={{ display: 'none' }}>
-              <defs>
-                <path
-                    id="stempath"
-                    d="M45.263 56.325c-4.153 2.877-8.688 3.997-13.684 2.947-6.75-1.42-12.658-.133-17.343
+            <Card
+              shadow={1}
+              style={{ margin: 'auto' }}
+            >
+              <CardTitle expand>
+                <h5 style={{ marginTop: '0' }}>
+                  Modern mobile operating systems will stop background JavaScript code while locked.
+                  Thus, if locked, the timer will stop running. Please don't lock your device. This
+                  issue does not occur in native builds. A native build for Android and, maybe, iOS,
+                  may be released soon, if users, like you, are interested.
+                    </h5>
+              </CardTitle>
+              <CardActions border>
+                <Button
+                  colored
+                  onClick={this.hideDontLockDeviceCard}
+                >
+                  OK
+                    </Button>
+                <Button
+                  colored
+                  onClick={this.sendMail}
+                >Email me</Button>
+              </CardActions>
+            </Card>
+          </Cell>
+          : null}
+
+        <Cell
+          col={12}
+          className="main"
+          onMouseMove={this.onMouseMove}
+          onMouseUp={this.onMouseUp}
+          onTouchMove={this.onMouseMove}
+          onTouchEnd={this.onMouseUp}
+          ref="main"
+        >
+          <svg style={{ display: 'none' }}>
+            <defs>
+              <path
+                id="stempath"
+                d="M45.263 56.325c-4.153 2.877-8.688 3.997-13.684 2.947-6.75-1.42-12.658-.133-17.343
                 5.274-.444.513-1.154.795-1.945.841 8.279-12.713 19.369-20.347
                 35.181-19.185-1.142-4.912-2.697-9.386-8.229-10.989 8.393-2.329 14.908.648 20.39
                 6.482 4.967-3.077 7.65-6.526 12.7-16.222 2.45 6.292 1.399 11.899-3.969 20.682 3.378
                 1.556 6.882 2.05 10.168.448 3.099-1.51 5.857-3.72 9.176-5.891-1.793 6.643-5.919
                 10.74-11.471 13.709-5.747 3.074-11.571 1.879-16.764.42l-9.355
                 19.685c-4.165-4.978-4.672-11.17-4.276-17.6l.219-.991-.798.39z"
-                />
-              </defs>
-            </svg>
-            <svg
-                className="stem"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 100 100"
-            >
-              <use xlinkHref="#stempath" />
-            </svg>
-            <div className="tomato"
-                 ref="tomato"
-                 onMouseDown={this.onMouseDown}
-                 onTouchStart={this.onMouseDown}
-            >
-              <div
-                  className="timeline"
-                  ref="timeline"
-                  style={{ transform: `translateX(-${this.pixelPos}px)` }}
               />
-            </div>
-          </Cell>
-
-          <Cell col={12}>
-            <div className="controls">
-              <FABButton
-                  ripple
-                  className="mdl-color--white"
-                  onClick={this.onStopClick}
-              >
-                <Icon name="stop" />
-              </FABButton>
-              <FABButton
-                  ripple
-                  className="mdl-color--white"
-                  style={{ float: 'right' }}
-                  onClick={this.onPlayPauseClick}
-              >
-                <Icon name={this.paused ? 'play_arrow' : 'pause'} />
-              </FABButton>
-            </div>
-          </Cell>
-
-          <Cell
-              col={12}
-              className="mdl-typography--text-center"
+            </defs>
+          </svg>
+          <svg
+            className="stem"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
           >
-            <Button
-                className={this.mode === TomatoComponent.MODE_POMODORO ? 'mdl-color-text--white' : null}
-                onClick={() => this.selectMode(TomatoComponent.MODE_POMODORO)}
-                ripple
+            <use xlinkHref="#stempath" />
+          </svg>
+          <div className="tomato"
+            ref="tomato"
+            onMouseDown={this.onMouseDown}
+            onTouchStart={this.onMouseDown}
+          >
+            <div
+              className="timeline"
+              ref="timeline"
+              style={{ transform: `translateX(-${this.pixelPos}px)` }}
+            />
+          </div>
+        </Cell>
+
+        <Cell col={12}>
+          <div className="controls">
+            <FABButton
+              ripple
+              className="mdl-color--white"
+              onClick={this.onStopClick}
             >
-              Pomodoro
-            </Button>
-            <Button
-                className={this.mode === TomatoComponent.MODE_SHORT_BREAK ? 'mdl-color-text--white' : null}
-                onClick={() => this.selectMode(TomatoComponent.MODE_SHORT_BREAK)}
-                ripple
+              <Icon name="stop" />
+            </FABButton>
+            <FABButton
+              ripple
+              className="mdl-color--white"
+              style={{ float: 'right' }}
+              onClick={this.onPlayPauseClick}
             >
-              Short Break
+              <Icon name={this.paused ? 'play_arrow' : 'pause'} />
+            </FABButton>
+          </div>
+        </Cell>
+
+        <Cell
+          col={12}
+          className="mdl-typography--text-center"
+        >
+          <Button
+            className={this.mode === TomatoComponent.MODE_POMODORO ? 'mdl-color-text--white' : null}
+            onClick={() => this.selectMode(TomatoComponent.MODE_POMODORO)}
+            ripple
+          >
+            Pomodoro
             </Button>
-            <Button
-                className={this.mode === TomatoComponent.MODE_LONG_BREAK ? 'mdl-color-text--white' : null}
-                onClick={() => this.selectMode(TomatoComponent.MODE_LONG_BREAK)}
-                ripple
-            >
-              Long Break
+          <Button
+            className={this.mode === TomatoComponent.MODE_SHORT_BREAK ? 'mdl-color-text--white' : null}
+            onClick={() => this.selectMode(TomatoComponent.MODE_SHORT_BREAK)}
+            ripple
+          >
+            Short Break
             </Button>
-          </Cell>
-        </Grid>
+          <Button
+            className={this.mode === TomatoComponent.MODE_LONG_BREAK ? 'mdl-color-text--white' : null}
+            onClick={() => this.selectMode(TomatoComponent.MODE_LONG_BREAK)}
+            ripple
+          >
+            Long Break
+            </Button>
+        </Cell>
+      </Grid>
     );
   }
 

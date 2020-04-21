@@ -59,7 +59,7 @@ export class AppDrawer extends React.Component {
                     <Icon name="portrait" /> My LinkedIn
                             </a>
                 <a href="mailto:jairo@jahdsoft.com" target="blank">
-                    <Icon name="email" /> Email me
+                    <Icon name="email" /> Contact by Email
                             </a>
             </Navigation>
 

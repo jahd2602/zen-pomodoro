@@ -14,12 +14,14 @@ class TomatoComponent extends Component {
 
   static propTypes = {
     getConfig: PropTypes.func.isRequired,
+    onTimerStarted: PropTypes.func.isRequired,
+    onTimerFinished: PropTypes.func.isRequired,
   };
 
   static MODE_POMODORO = 0; // 25 minutes
   static MODE_SHORT_BREAK = 1; // 5 minutes
   static MODE_LONG_BREAK = 2; // 15 minutes
-  static MODE_CUSTOM = 3; // User selected
+  // static MODE_CUSTOM = 3; // User selected
 
   componentWillMount() {
     this.context.onSetTitle(title);
@@ -36,6 +38,9 @@ class TomatoComponent extends Component {
       this.onStopClick();
     }
     this.paused = !this.paused;
+    if (!this.paused) { // Starting
+      this.props.onTimerStarted();
+    }
     this.forceUpdate();
   };
 
@@ -172,6 +177,7 @@ class TomatoComponent extends Component {
     if (this.timePos === 0) {
       this.ringSound.stop().play();
       this.paused = true;
+      this.props.onTimerFinished(this.mode);
       this.forceUpdate();
     }
   };
@@ -286,7 +292,6 @@ class TomatoComponent extends Component {
           onMouseUp={this.onMouseUp}
           onTouchMove={this.onMouseMove}
           onTouchEnd={this.onMouseUp}
-          ref="main"
         >
           <svg style={{ display: 'none' }}>
             <defs>
@@ -310,13 +315,11 @@ class TomatoComponent extends Component {
             <use xlinkHref="#stempath" />
           </svg>
           <div className="tomato"
-            ref="tomato"
             onMouseDown={this.onMouseDown}
             onTouchStart={this.onMouseDown}
           >
             <div
               className="timeline"
-              ref="timeline"
               style={{ transform: `translateX(-${this.pixelPos}px)` }}
             />
           </div>

@@ -213,3 +213,13 @@ textarea {
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+.taskTable {
+  white-space: normal;
+  width      : 100%;
+}
+
+.newTaskNameTextfield {
+  width        : 100%;
+  margin-bottom: -15px;
+}

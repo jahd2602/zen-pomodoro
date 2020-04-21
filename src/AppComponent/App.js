@@ -8,6 +8,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import emptyFunction from 'fbjs/lib/emptyFunction';
+// eslint-disable-next-line no-unused-vars
 import s from './App.scss';
 import TomatoComponent from '../TomatoComponent/Tomato';
 import {
@@ -167,7 +168,7 @@ class App extends Component {
                                         if (secondsPast > 86400) {
                                             var day = timeStamp.getDate();
                                             var month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "");
-                                            var year = timeStamp.getFullYear() == now.getFullYear() ? "" : " " + timeStamp.getFullYear();
+                                            var year = timeStamp.getFullYear() === now.getFullYear() ? "" : " " + timeStamp.getFullYear();
                                             return day + " " + month + year;
                                         }
                                     }} name="time">Ago</TableHeader>

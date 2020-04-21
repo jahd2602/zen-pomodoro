@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Cell, Navigation, Icon, Drawer, Button, RadioGroup, Radio } from 'react-mdl';
 import { version } from '../../package.json';
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, TelegramShareButton, WhatsappShareButton, PinterestShareButton, RedditShareButton, EmailShareButton, FacebookIcon, TwitterIcon, TelegramIcon, WhatsappIcon, LinkedinIcon, PinterestIcon, RedditIcon, EmailIcon } from 'react-share';
+// eslint-disable-next-line no-unused-vars
 import s from './AppDrawer.scss';
 
 export class AppDrawer extends React.Component {

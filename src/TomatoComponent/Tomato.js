@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+// eslint-disable-next-line no-unused-vars
 import s from './Tomato.scss';
 import { Howl } from 'howler';
 import { FABButton, Icon, Button, Grid, Cell, Chip, Card, CardActions, CardTitle } from 'react-mdl';
@@ -233,7 +234,7 @@ class TomatoComponent extends Component {
         {this.showWhatIsPomodoroChip ?
           <Cell col={12} className="mdl-typography--text-center">
             <Chip className="mdl-color--white" onClose={this.hideHelpChip}>
-              <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank"
+              <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener noreferrer"
                 className="mdl-color-text--black"
               >
                 What is the Pomodoro Technique?

@@ -1,6 +1,6 @@
-# Live version: zen.jahdsoft.com
+# [Open Live Version at zen.jahdsoft.com](zen.jahdsoft.com)
 
-Authors: `Jairo Honorio` and you (issues and pull requests welcome!)
+Authors: `Jairo Honorio` and **you** (issues and pull requests welcome!)
 
 License: `MIT`
 

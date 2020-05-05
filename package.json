@@ -1,6 +1,6 @@
 {
   "name": "zen-pomodoro",
-  "version": "2019.8.0",
+  "version": "2020.5.0",
   "homepage": "./",
   "dependencies": {
     "fbjs": "^1.0.0",

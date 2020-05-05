@@ -1,4 +1,4 @@
-# [Open Live Version at zen.jahdsoft.com](zen.jahdsoft.com)
+# [Open Live Version at zen.jahdsoft.com](http://zen.jahdsoft.com)
 
 Authors: `Jairo Honorio` and **you** (issues and pull requests welcome!)
 

@@ -1,3 +1,9 @@
+# Live version: zen.jahdsoft.com
+
+Authors: `Jairo Honorio` and you (issues and pull requests welcome!)
+
+License: `MIT`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Install dependencies

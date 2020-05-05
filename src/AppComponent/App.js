@@ -51,6 +51,16 @@ class App extends Component {
         };
     }
 
+    componentDidMount() {
+        // Every 5 seconds update the time counter of every task
+        this.interval = setInterval(() => this.forceUpdate(), 5000);
+    }
+
+    componentWillUnmount() {
+        // Avoid possible future memory/error leaks
+        clearInterval(this.interval);
+    }
+
     getChildContext() {
         const context = this.context;
         return {
@@ -153,24 +163,31 @@ class App extends Component {
                                             floatingLabel
                                         />
                                     </TableHeader>
-                                    <TableHeader cellFormatter={(timeStamp) => {
-                                        var now = new Date(),
-                                            secondsPast = (now.getTime() - timeStamp) / 1000;
-                                        if (secondsPast < 60) {
-                                            return '<1m';
+                                    <TableHeader cellFormatter={(date) => {
+                                        var seconds = Math.floor((new Date() - date) / 1000);
+
+                                        var interval = Math.floor(seconds / 31536000);
+
+                                        if (interval > 1) {
+                                            return interval + "y";
                                         }
-                                        if (secondsPast < 3600) {
-                                            return parseInt(secondsPast / 60) + 'm';
+                                        interval = Math.floor(seconds / 2592000);
+                                        if (interval > 1) {
+                                            return interval + "mo";
                                         }
-                                        if (secondsPast <= 86400) {
-                                            return parseInt(secondsPast / 3600) + 'h';
+                                        interval = Math.floor(seconds / 86400);
+                                        if (interval > 1) {
+                                            return interval + "d";
                                         }
-                                        if (secondsPast > 86400) {
-                                            var day = timeStamp.getDate();
-                                            var month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "");
-                                            var year = timeStamp.getFullYear() === now.getFullYear() ? "" : " " + timeStamp.getFullYear();
-                                            return day + " " + month + year;
+                                        interval = Math.floor(seconds / 3600);
+                                        if (interval > 1) {
+                                            return interval + "h";
                                         }
+                                        interval = Math.floor(seconds / 60);
+                                        if (interval > 1) {
+                                            return interval + "m";
+                                        }
+                                        return "<1m";
                                     }} name="time">Ago</TableHeader>
 
                                 </DataTable>
